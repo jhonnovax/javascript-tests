@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Froala Editor Events</title>
+
+	<script type="module" src="./node_modules/@on24/on24-rt-editor/dist/on24-rt-editor.js"></script>
+
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const on24Editor = document.querySelector('on24-rt-editor');
+
+			// Setting options
+			const options = {
+				minHeight: 100,
+				value: "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p><p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>",
+				tokens: {
+					"FIRSTNAME": "First Name", 
+					"LASTNAME":  "Last Name", 
+					"EMAIL": "Email Address", 
+					"EVENTTITLE": "Event Title",
+					"EVENTSTARTDATE": "Event Start Date and Time",
+					"EVENTENDDATE" : "Event End Date and Time",
+					"AUDIENCEURL": "Audience URL",
+					"CALENDARREMINDER": "Calendar Reminder",
+					"EMAILSETTINGSURL": "Email Settings Url"
+				},
+				options: {
+					"imageUploadURL": "https://user1690684286350.requestly.tech/upload-file",
+					"imageUploadParam": "file",
+					"placeholderText": "Enter XXX",
+					"scrollableContainer": "#article-modal-froala-wrapper",
+					"toolbarContainer": "#article-modal-froala-toolbar"  
+				}
+			};
+			const encodedOptions = JSON.stringify(options);
+			on24Editor.setAttribute('options', encodedOptions);
+
+			// Event listener for 'ready' event
+			on24Editor.addEventListener('ready', function () {
+				console.log('Component ready!');
+			});
+
+			on24Editor.addEventListener('image.uploaded', function () {
+				console.log('Image Uploaded!');
+			});
+
+			on24Editor.addEventListener('commands.after', function (cmd, data) {
+				console.log('Commands After', cmd, data);
+			});
+
+
+		});
+	</script>
+
+</head>
+
+<body>
+	<section name="buttons-demo">
+		<article id="article-modal-froala-wrapper">
+			<div id="article-modal-froala-toolbar"></div>
+		</article>
+		<on24-rt-editor>
+		</on24-rt-editor>
+	</section>
+
+</body>
+
+</html>

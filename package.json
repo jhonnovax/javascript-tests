@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@on24/on24-rt-editor": "^1.4.2"
+  }
+}

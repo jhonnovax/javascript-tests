@@ -1,0 +1,38 @@
+header {
+	background-image: url(banner.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+
+	h1 {
+		margin-left: 50px;
+	}
+}
+
+/*
+@media screen and (min-width: 600px) and (max-width: 800px) {
+@media screen and (600px <= width <= 800px) {
+*/
+@media screen and (width >= 600px) and (width <= 800px) {
+	h1 {
+		color: red;
+	}
+}
+
+#container {
+	border: 1px solid green;
+	margin: 16px auto;
+	width: 400px;
+	height: 400px;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-items: space-between;
+	/* justify-content: center; */
+}
+
+.box {
+	background-color: antiquewhite;
+	width: 100px;
+	height: 100px;
+	margin: 5px;
+}
